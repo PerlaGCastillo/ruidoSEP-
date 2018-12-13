@@ -44,100 +44,83 @@
     <section class="py-5 transparente">
       <div class="container">
         <h1>ruidoSEP</h1>
-        <p class="lead">
-¿Te has preguntado de cuántas maneras distintas suena tu escuela en el año?
+            <p class="lead">
+                ¿Te has preguntado de cuántas maneras distintas suena tu escuela en el año?
 
-¿Cuántos sonidos puedes distinguir a lo largo del día, cuál es tu favorito?
+                ¿Cuántos sonidos puedes distinguir a lo largo del día, cuál es tu favorito?
 
-Bienvenidxs todxs a colaborar en este gran mapa sonoro colectivo.
+                Bienvenidxs todxs a colaborar en este gran mapa sonoro colectivo.
 
-Ruido SEP es una aplicación que genera paisajes sonoros, cada archivo que subes, es una pequeña información sonora que compone nuestro mapa.
+                Ruido SEP es una aplicación que genera paisajes sonoros, cada archivo que subes, es una pequeña información sonora que compone nuestro mapa.
 
-Después de que cada usuario ha seleccionado la escuela a la que pertenece, la función grabar se activa.
+                Después de que cada usuario ha seleccionado la escuela a la que pertenece, la función grabar se activa.
 
-Contarás con 8 segundos para registrar los sonidos de tu interés.
+                Contarás con 8 segundos para registrar los sonidos de tu interés.
 
-Pasado este tiempo, podrá escucharlo y decidir si quieres subirlo al servidor.
+                Pasado este tiempo, podrá escucharlo y decidir si quieres subirlo al servidor.
 
-Con los audios que subes y con los de tus compañeros, se irán creando mapas sonoros cambiantes.
+                Con los audios que subes y con los de tus compañeros, se irán creando mapas sonoros cambiantes.
 
-En nuestra página web podrás escuchar los paisajes sonoros de las distintas secundarias de la CDMX.
+                En nuestra página web podrás escuchar los paisajes sonoros de las distintas secundarias de la CDMX.
 
-Entre mas audios se registren, nuestro mapa sonoro colectivo cada vez más se irá tranformando.
+                Entre mas audios se registren, nuestro mapa sonoro colectivo cada vez más se irá tranformando.
 
+                La aplicación ruidoSEP fue realizada como resultado del taller "Creación de experiencias colectivas para la apropiación del espacio público a través de dispositivos móviles."
 
-
-La aplicación ruidoSEP fue realizada como resultado del taller "Creación de experiencias colectivas para la apropiación del espacio público a través de dispositivos móviles."
-
-</p>
+            </p>
       </div>
-       
-          <!-- Image Section -- selecciona tu escuela -->
-    <section class="py-5 bg-image-full" style="background-image: url('img/bg.svg');">
-
-      <div class="dropdown show text-center">
-          <a class="btn btn-secondary dropdown-toggle mx-auto" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Escuelas </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+           <!-- selecciona tu escuela -->
+        <section class="py-5 bg-image-full" style="background-image: url('img/bg.svg');">         
+            <!--          escuelas loadJSON-->
+          <div class="d-flex justify-content-center"> 
+          <select id=menu  onchange="if (this.selectedIndex) doSomething(this.value);">
+            <option>Selecciona tu escuela</option>
+          </select>
           </div>
-        </div>          
-
-    </section>
-      
-       
-        <div class="container" >
-               <img class="icono mx-auto" src="img/icono.jpeg" alt="">
-               </div>
-        <div class="container">
+        </section>
+        <div class="container d-flex justify-content-center">
+               <a class="lead" href="https://play.google.com/store/apps/details?id=net.hugosoli.rule.rudiosep">Descarga la app </a>
+                
+        </div>
+        
+        </section>
+    <!-- Footer -->
+    <footer class="py-5 bg-d">     
+      <div class="container">
         <div class="row">
-           
-                <div class="col-6 lead">
-                <h4>TALLERISTAS:</h4> 
-                <ul>
-                    <li>Alejandra Donají Sánchez Unzueta</li>
-                    <li>Edlli Citlalli Hernández Jiménez</li>
-                    <li>Cecilia Sánchez Nava</li>
-                    <li>Perla Godinez Castillo</li>
-                    <li>Omar Goméz González</li>
-                    <li>Jorge Ernesto Sosa Díaz</li>
-                    <li>Sergio García Gerardo</li>
-                    <li>Fermín Chávez Sánchez</li>
-                    <li>Carlos Del Hierro Gutiérrez</li>
-                </ul>
-                
-             </div>
-               <div class="col-6 lead">
-                
-                   <h4>COORDINACIÓN:</h4>
-                   <ul>                   
-                       <li>Hugo Solis García.</li>
-                    </ul>
- </div>
+             <div class="col-12">
+                <h5>COORDINACIÓN:</h5>
+                   <p> Hugo Solis García.</p>
+                <h5>TALLERISTAS:</h5> 
+                <p> Alejandra Donají Sánchez Unzueta,Edlli Citlalli Hernández Jiménez,Cecilia Sánchez Nava,Perla Godinez Castillo,Omar Goméz González,Jorge Ernesto Sosa Díaz,Sergio García Gerardo,Fermín Chávez Sánchez,Carlos Del Hierro Gutiérrez.
+                </p>     
+              </div>
            </div>
        </div>
-        </section>
-
- 
-    
-   
-
-   
-
-    <!-- Footer -->
-    <footer class="py-5 bg-d">
-      <div class="container">
-        <p class="m-0 text-center text-white">&copy; ruidoSEP</p>
-      </div>
-      <!-- /.container -->
     </footer>
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!--loadJSON-->
+<script>
+var xmlhttp = new XMLHttpRequest();
+var myObj={};
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        console.log(myObj);
+		var select = document.getElementById("menu");
+		for(index in myObj) {
+		    select.options[select.options.length] = new Option(myObj[index]["nombre"], index);
+		}
+    }
+};
+xmlhttp.open("GET", "escuelasjson.php", true);
+xmlhttp.send();
 
-  </body>
-
+function doSomething(text){
+		document.getElementById("par").innerHTML=myObj[text]["nombre"];
+}
+</script>
+</body>
 </html>
